@@ -1,6 +1,7 @@
 import re
 import random
 import requests
+from bs4 import BeautifulSoup
 
 
 class Scrapper:
