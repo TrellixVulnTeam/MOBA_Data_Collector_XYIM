@@ -174,10 +174,9 @@ class Scrapper:
 
         Data = []
         i = 0
-        #for element in resultat:
-        while i != len(resultat):
+        while i != len(resultat['Name']):
             Player = {
-                'Rank' : i+1,
+                'Rank' : str(i+1),
                 'Server' : resultat['Server'][i],
                 'Name' : resultat['Name'][i],
                 'Elo' : resultat['Elo'][i],
