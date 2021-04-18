@@ -15,12 +15,11 @@ class Scrapper:
         ]
         self.headers = {'User-Agent': random.choice(self.user_agent_list)}
         self.url = url
-        self.origin = url
+        self.rank = 1
 
     ########
     #     RAJOUTER les fonctions définies dans les Excercises 1 et 2 ci dessous
     ######
-
     def get_response(self, timeout=10, max_retry=3):
         """
         1. Spécifier une valeur de timeout dans les paramètres de fonctions
@@ -43,69 +42,119 @@ class Scrapper:
         """
         return x.strip()
 
-
-    def clean_html_string(self, raw_html):
-        """Fonction enlève les caractères spéciaux d'une string
-           Exemple : '<> Ca va ?!' > 'Ca va'
-           """
-        cleanr = re.compile('<.*?>')  # cleanr = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
-        cleantext = re.sub(cleanr, '', raw_html)
-        return cleantext
-
-
-    def extract_domain_name(self):
-        """ Fonction qui extrait le nom de domaine
-        Exemple 'http://www.lemonde.fr/accueil' > 'www.lemonde.fr'
-        """
-        m = re.search('https?://([A-Za-z_0-9.-]+).*', self.url)
-        if m:
-            return m.group(1)
-
-
     def get_soup(self, text_response):
         """Parser la page html en utilisant BeautifulSoup pour accèder facilement aux balises et leurs contenu"""
         soup = BeautifulSoup(text_response, "lxml")
         return soup
 
-
-    def get_title(self, soup):
+    def get_all_span(self, soup):
         """
-        Extraire le tire de la page"""
-        return soup.find('title').text
+        Extraire toutes les balises span de la page"""
+        return [elt.text for elt in soup.findAll('span')]
 
-
-    def get_all_h1(self, soup):
+    def get_all_className(self, soup):
         """
-        Extraire toutes les balises h1 de la page"""
-        return [elt.text for elt in soup.findAll('h2')]
+        Extraire toutes les balises class = "name" de la page"""
+        return [elt.text for elt in soup.findAll(class_="name")]
 
-
-    def get_imagelinks(self, soup):
-        """ Extraire les images visibles dans l'url"""
-        try:
-            return [elt['src'] for elt in soup.findAll('img') if elt.get('src')]
-        except:
-            return []
-
-
-    def tag_visible(self, element):
-        if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
-            return False
-        return True
-
-
-    def get_main_text(self, soup):
+    def get_all_server(self, soup):
         """
-        Extraire le texte principal sur la page"""
-        texts = soup.findAll(text=True)
-        visible_texts = filter(self.tag_visible, texts)
-        return u" ".join(t.strip() for t in visible_texts)
+        Extraire toutes les balises class = "name" de la page"""
+        #soup = soup.find_all("i", class_=False)
+        return [elt.text for elt in soup.findAll("i", class_=False)]
 
+    def get_all_classSummonerTier(self, soup):
+        """
+        Extraire toutes les balises class = "SummonerTier" de la page"""
 
-    def get_out_links(self, soup):
-        """ Extraire tous les liens sortants"""
-        links_list = [elt['href'] for elt in soup.findAll('a')]
-        return [elt for elt in links_list if not elt.startswith(self.extract_domain_name(self.url))]
+        return [elt for elt in soup.findAll(class_="summonerTier")]
+
+    def get_all_classTextCenter(self, soup):
+        """
+        Extraire toutes les balises class = "SummonerTier" de la page"""
+
+        return [self.remove_white_spaces(elt.text) for elt in soup.findAll(class_="text-center")]
+
+    def getName(self, soup):
+        list = self.get_all_className(soup)
+        list.remove('\n\n\n\n\n\n')
+        return list
+
+    def getServer(self, soup):
+        list1 = self.get_all_server(soup)
+        list2 = []
+        for element in list1:
+            if "(" not in element:
+                list2.append(element)
+        return list2
+
+    def getStats(self, soup, number):
+        list1 = [self.remove_white_spaces_split(elt.text) for elt in soup.findAll(class_="text-center")]
+        list2 = []
+        i = 0
+        for element in list1:
+            if i == 16 or i == 204:
+                i = i + 1
+            if i % 2 == 0 and i != 0:
+                list2.append(element)
+            i = i + 1
+        if number == 1:
+            return self.getElo(list2)
+        elif number == 2:
+            return self.getLP(list2)
+        elif number == 3:
+            return self.getWin(list2)
+        elif number == 4:
+            return self.getWinRate(list2)
+
+    def getElo(self,list1):
+        list2 = []
+        for element in list1:
+            if element:
+                list2.append(element[0])
+        return list2
+
+    def getLP(self,list1):
+        list2 = []
+        for element in list1:
+            if element:
+                list2.append(element[1])
+        return list2
+
+    def getWin(self,list1):
+        list2 = []
+        for element in list1:
+            if element:
+                list2.append(element[4])
+        return list2
+
+    def getWinRate(self,list1):
+        list2 = []
+        for element in list1:
+            if element:
+                list2.append(self.remove_parenthese_strip(element[5]))
+        return list2
+
+    def remove_white_spaces_split(self, sentence):
+        """
+        :param soup:
+        :return:
+        """
+        return sentence.split()
+
+    def remove_parenthese_strip(self, sentence):
+        """
+        :param soup:
+        :return:
+        """
+        return sentence.strip('()%')
+
+    def remove_white_spaces_split(self, sentence):
+        """
+        :param soup:
+        :return:
+        """
+        return sentence.split()
 
 
     def extract_sitemap(self, soup):
@@ -118,6 +167,51 @@ class Scrapper:
                  with open('result.json', 'w') as fp:
                      json.dump(xmlDict, fp)"""
         return xmlDict
+
+    def extract_page(self):
+        response = self.get_response()
+        soup = self.get_soup(response)
+
+        resultat = {
+            'Name': self.getName(soup),
+            'Server': self.getServer(soup),
+            'Elo': self.getStats(soup,1),
+            'LP': self.getStats(soup,2),
+            'Win': self.getStats(soup,3),
+            'Win%': self.getStats(soup,4)
+
+        }
+
+        data = []
+
+        for i in range(0, len(resultat['Name'])):
+            Player = {
+                'Rank' : self.rank,
+                'Server' : resultat['Server'][i],
+                'Name' : resultat['Name'][i],
+                'Elo' : resultat['Elo'][i],
+                'LP': resultat['LP'][i],
+                'Win': resultat['Win'][i],
+                'Win%': resultat['Win%'][i]
+            }
+            self.rank += 1
+            data.append(Player)
+
+        return data
+
+    def extract_pages_bulk(self, number):
+        concatenated_data = []
+        for i in range(0, number):
+            data = self.extract_page()
+            if(len(data) == 0):
+                break
+            concatenated_data += data
+            print(self.url)
+            print(data[len(data)-1])
+            self.next_page()
+
+        return concatenated_data
+
 
     def next_page(self):
         length = len(self.url)
@@ -137,31 +231,3 @@ class Scrapper:
             self.url = newurl
         else :
             self.url += "/page-2"
-
-
-    def get_sitemap_json(self):
-        domain = self.extract_domain_name()
-        urls = ['http://' + domain + '/' + term for term in ['sitemap.xml', 'sitemap1.xml', 'sitemap_index.xml']]
-        for url in urls:
-            response = requests.get(url)
-            if response.status_code == 200:
-                soup = self.get_soup(response.text)
-                sm = self.extract_sitemap(soup)
-                return sm
-        return None
-
-
-    def main(self):
-        response = self.get_response()
-        soup = self.get_soup(response)
-        resultat = {
-            'domain_name': self.extract_domain_name(),
-            'title': self.get_title(soup),
-            'url': self.url,
-            'images': self.get_imagelinks(soup)[:2],
-            'h2': self.get_all_h1(soup)
-
-        }
-        
-        sitemap = self.get_sitemap_json()
-        return resultat

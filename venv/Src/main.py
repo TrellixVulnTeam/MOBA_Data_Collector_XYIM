@@ -1,9 +1,10 @@
 
 from scrapper import Scrapper
+from mongo import Mongo_Connector
 
 
 s = Scrapper("https://www.leagueofgraphs.com/rankings/summoners")
 
-for i in range(0, 100001):
-    s.next_page()
-    print(s.url)
+x = s.extract_pages_bulk(55)
+
+#print(x[len(x)-1])
