@@ -1,5 +1,6 @@
 
 import re
+from lxml import html
 import random
 import requests
 from bs4 import BeautifulSoup
@@ -15,6 +16,7 @@ class Scrapper:
         ]
         self.headers = {'User-Agent': random.choice(self.user_agent_list)}
         self.url = url
+        self.origin = url
         self.rank = 1
 
     ########
@@ -34,7 +36,6 @@ class Scrapper:
             except Exception as e:
                 lastException = e
         raise lastException
-
 
     def remove_white_spaces(self, x):
         """ Fonction qui enlève les espaces d'une string
@@ -136,24 +137,12 @@ class Scrapper:
         return list2
 
     def remove_white_spaces_split(self, sentence):
-        """
-        :param soup:
-        :return:
-        """
         return sentence.split()
 
     def remove_parenthese_strip(self, sentence):
-        """
-        :param soup:
-        :return:
-        """
         return sentence.strip('()%')
 
     def remove_white_spaces_split(self, sentence):
-        """
-        :param soup:
-        :return:
-        """
         return sentence.split()
 
 
@@ -199,15 +188,36 @@ class Scrapper:
 
         return data
 
-    def extract_pages_bulk(self, number):
+    def extract_pages_bulk(self, number, regions_list=None):
         concatenated_data = []
-        for i in range(0, number):
+
+        if regions_list is not None:
+            response = self.get_response()
+            tree = html.fromstring(response)
+            urls = [ul.xpath("li/a/@href") for ul in tree.xpath(regions_list)][0]
+            for url in urls:
+                #print(url)
+                url_elements = url.split('/')
+                if len(url_elements) < 4:
+                    continue
+                self.url = self.origin + '/' + url_elements[len(url_elements)-1]
+                print(self.url)
+                concatenated_data += self.iterate_pages(number)
+            return concatenated_data
+
+        concatenated_data = self.iterate_pages(number)
+
+        return concatenated_data
+
+    def iterate_pages(self, number_of_pages):
+        concatenated_data = []
+        for i in range(0, number_of_pages):
             data = self.extract_page()
             if(len(data) == 0):
                 break
             concatenated_data += data
-            print(self.url)
-            print(data[len(data)-1])
+            #print(self.url)
+            #print(data[len(data)-1])
             self.next_page()
 
         return concatenated_data
