@@ -1,8 +1,8 @@
 
 import re
-from lxml import html
 import random
 import requests
+from lxml import html
 from bs4 import BeautifulSoup
 
 class Scrapper:
@@ -10,10 +10,7 @@ class Scrapper:
         """ 1. Créer une liste de plusieurs User Agents (Un max de 5 est suffisant pour l'exemple)
             2. effectuer la rotation pour en choisir un aléatoirement à chaque requête
         """
-        self.user_agent_list = [
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36'
-        ]
+        self.user_agent_list = self.init_user_agents()
         self.headers = {'User-Agent': random.choice(self.user_agent_list)}
         self.url = url
         self.origin = url
@@ -36,6 +33,12 @@ class Scrapper:
             except Exception as e:
                 lastException = e
         raise lastException
+
+    def init_user_agents(self):
+        f = open("useragents.txt", "r")
+        agents = [a for a in f.read().split("\n")]
+        f.close()
+        return agents
 
     def remove_white_spaces(self, x):
         """ Fonction qui enlève les espaces d'une string
@@ -126,14 +129,14 @@ class Scrapper:
         list2 = []
         for element in list1:
             if element:
-                list2.append(element[4])
+                list2.append(element[len(element)-2])
         return list2
 
     def getWinRate(self,list1):
         list2 = []
         for element in list1:
             if element:
-                list2.append(self.remove_parenthese_strip(element[5]))
+                list2.append(self.remove_parenthese_strip(element[len(element)-1]))
         return list2
 
     def remove_white_spaces_split(self, sentence):
@@ -188,18 +191,22 @@ class Scrapper:
 
         return data
 
-    def extract_pages_bulk(self, number, regions_list=None):
+    def extract_pages_bulk(self, number, extract_regions = False):
         concatenated_data = []
 
+        regions_list = '//*[@id="drop-region"]/ul' if extract_regions else None
         if regions_list is not None:
             response = self.get_response()
             tree = html.fromstring(response)
             urls = [ul.xpath("li/a/@href") for ul in tree.xpath(regions_list)][0]
+
             for url in urls:
                 #print(url)
+                self.rank = 1
                 url_elements = url.split('/')
                 if len(url_elements) < 4:
                     continue
+
                 self.url = self.origin + '/' + url_elements[len(url_elements)-1]
                 print(self.url)
                 concatenated_data += self.iterate_pages(number)
@@ -241,3 +248,29 @@ class Scrapper:
             self.url = newurl
         else :
             self.url += "/page-2"
+
+# class Temp:
+#     def __init__(self, url, xpath):
+#         self.url = url
+#         self.xpath = xpath
+#         self.user_agent_list = [
+#             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
+#             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36'
+#         ]
+#         self.headers = {'User-Agent': random.choice(self.user_agent_list)}
+#         self.response = requests.get(self.url, headers=self.headers).text
+#
+#     def run(self):
+#         tree = html.fromstring(self.response)
+#         tbody = tree.xpath("//tbody")[0]
+#         l = tbody.xpath(".//tr/td[1]/a/text()")
+#         for t in l:
+#             print(t)
+#         f = open("useragents.txt", "a+")
+#         for i in l:
+#             f.write(i + "\n")
+#         f.close()
+#
+#     x = Temp("https://developers.whatismybrowser.com/useragents/explore/software_name/android-browser/",
+#              '//*[@id="content-base"]/section[2]/div/div/table/thead/tr')
+#     x.run()
