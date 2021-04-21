@@ -1,7 +1,9 @@
 
 import re
+import csv
 import random
 import requests
+import pandas as pd
 from lxml import html
 from bs4 import BeautifulSoup
 
@@ -210,11 +212,11 @@ class Scrapper:
                 self.url = self.origin + '/' + url_elements[len(url_elements)-1]
                 print(self.url)
                 concatenated_data += self.iterate_pages(number)
-            return concatenated_data
+            return pd.DataFrame(concatenated_data)
 
         concatenated_data = self.iterate_pages(number)
 
-        return concatenated_data
+        return pd.DataFrame(concatenated_data)
 
     def iterate_pages(self, number_of_pages):
         concatenated_data = []
@@ -223,8 +225,8 @@ class Scrapper:
             if(len(data) == 0):
                 break
             concatenated_data += data
-            #print(self.url)
-            #print(data[len(data)-1])
+            print(self.url)
+            print(data[len(data)-1])
             self.next_page()
 
         return concatenated_data
@@ -249,7 +251,10 @@ class Scrapper:
         else :
             self.url += "/page-2"
 
-# class Temp:
+    def write_csv(self, path, data):
+        data.to_csv(path, encoding='utf-8')
+
+# class UserAgent_Scrapper:
 #     def __init__(self, url, xpath):
 #         self.url = url
 #         self.xpath = xpath

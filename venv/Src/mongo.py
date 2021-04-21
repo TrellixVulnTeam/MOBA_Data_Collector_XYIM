@@ -1,4 +1,3 @@
-import pandas as pd
 import pymongo
 
 class Mongo_Client:

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -22,12 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df66f531-acc2-46fc-825c-fd466983fdd2" name="Default Changelist" comment="">
+    <list default="true" id="c3b2a994-e44a-42d6-9a8c-f1c72c11b2f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Src/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MOBA_Data_Collector.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MOBA_Data_Collector.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Src/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/mongo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Src/scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/scrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Src/t.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,39 +37,52 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
+        <option value="HTML File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="c795aaaf-338d-4b66-94a8-24f7d82ea695" />
-  <component name="ProjectId" id="1rBB3HJfK0CqVuxul0YFWietKP6" />
+  <component name="ProjectId" id="1rU1RKqT24nGQnIJOTBcWugeDdt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="settings.editor.splitter.proportion" value="0.25661916" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv/Src" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MOBA_Data_Collector" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Revive\Downloads\Cours\NoSQL\MOBA_Data_Collector\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Src" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Src/main.py" />
       <option name="PARAMETERS" value="" />
@@ -80,21 +93,43 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="MOBA_DATA" type="Python.FlaskServer">
+      <module name="MOBA_Data_Collector" />
+      <option name="target" value="C:\Users\Revive\Downloads\Cours\NoSQL\MOBA_Data_Collector\venv\Src\app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Revive\Downloads\Cours\NoSQL\MOBA_Data_Collector\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Src" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.MOBA_DATA" />
+      <item itemvalue="Python.main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="df66f531-acc2-46fc-825c-fd466983fdd2" name="Default Changelist" comment="" />
-      <created>1618439401542</created>
+      <changelist id="c3b2a994-e44a-42d6-9a8c-f1c72c11b2f2" name="Default Changelist" comment="" />
+      <created>1619015846470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1618439401542</updated>
-      <workItem from="1618439402663" duration="2103000" />
-      <workItem from="1618479179806" duration="9295000" />
-      <workItem from="1618748852933" duration="5891000" />
-      <workItem from="1618774140300" duration="7753000" />
-      <workItem from="1618866477754" duration="5620000" />
-      <workItem from="1618912650325" duration="7758000" />
+      <updated>1619015846470</updated>
+      <workItem from="1619015847609" duration="10985000" />
     </task>
     <servers />
   </component>
@@ -114,56 +149,38 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618769601587">
+    <state x="455" y="154" width="1092" height="859" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619027153454">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618769601587" />
-    <state x="740" y="236" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1618768651435">
+    <state x="455" y="154" width="1092" height="859" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619027153454" />
+    <state x="907" y="283" key="FileChooserDialogImpl" timestamp="1619017587506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="236" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618768651435" />
-    <state x="745" y="268" key="FileChooserDialogImpl" timestamp="1618439739007">
+    <state x="907" y="283" key="FileChooserDialogImpl/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619017587506" />
+    <state width="1877" height="431" key="GridCell.Tab.0.bottom" timestamp="1619045511423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="268" key="FileChooserDialogImpl/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618439739007" />
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom" timestamp="1618921511893">
+    <state width="1877" height="431" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511423" />
+    <state width="1877" height="431" key="GridCell.Tab.0.center" timestamp="1619045511422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618921511893" />
-    <state width="1877" height="225" key="GridCell.Tab.0.center" timestamp="1618921511893">
+    <state width="1877" height="431" key="GridCell.Tab.0.center/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511422" />
+    <state width="1877" height="431" key="GridCell.Tab.0.left" timestamp="1619045511422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618921511893" />
-    <state width="1877" height="225" key="GridCell.Tab.0.left" timestamp="1618921511893">
+    <state width="1877" height="431" key="GridCell.Tab.0.left/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511422" />
+    <state width="1877" height="431" key="GridCell.Tab.0.right" timestamp="1619045511422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618921511893" />
-    <state width="1877" height="225" key="GridCell.Tab.0.right" timestamp="1618921511893">
+    <state width="1877" height="431" key="GridCell.Tab.0.right/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511422" />
+    <state x="607" y="152" key="SettingsEditor" timestamp="1619016346620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618921511893" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1618519767049">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618519767049" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1618519767048">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618519767048" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1618519767048">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618519767048" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1618519767049">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618519767049" />
-    <state x="466" y="169" key="SettingsEditor" timestamp="1618774315475">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="466" y="169" key="SettingsEditor/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1618774315475" />
+    <state x="607" y="152" key="SettingsEditor/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619016346620" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$main.coverage" NAME="main Coverage Results" MODIFIED="1618921511888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
+    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1619016304173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$main.coverage" NAME="main Coverage Results" MODIFIED="1619045511418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
+    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$MOBA_DATA.coverage" NAME="MOBA_DATA Coverage Results" MODIFIED="1619042673499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
   </component>
 </project>
