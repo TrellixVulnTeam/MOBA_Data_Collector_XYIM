@@ -20,14 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3b2a994-e44a-42d6-9a8c-f1c72c11b2f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Src/static/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MOBA_Data_Collector.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MOBA_Data_Collector.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/all_regions_50.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/any50.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Src/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/mongo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/query.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/Src/scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/scrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Src/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Src/useragents.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +70,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv/Src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv/Src/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Revive\Downloads\Cours\NoSQL\MOBA_Data_Collector\venv\Src\templates" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -129,7 +137,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619015846470</updated>
-      <workItem from="1619015847609" duration="10985000" />
+      <workItem from="1619015847609" duration="10986000" />
+      <workItem from="1619082009773" duration="594000" />
+      <workItem from="1619192633994" duration="25844000" />
+      <workItem from="1619269342766" duration="2929000" />
     </task>
     <servers />
   </component>
@@ -149,6 +160,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="698" y="343" key="#Notifications" timestamp="1619237004049">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="698" y="343" key="#Notifications/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619237004049" />
     <state x="455" y="154" width="1092" height="859" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619027153454">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -157,30 +172,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="907" y="283" key="FileChooserDialogImpl/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619017587506" />
-    <state width="1877" height="431" key="GridCell.Tab.0.bottom" timestamp="1619045511423">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom" timestamp="1619271739635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="431" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511423" />
-    <state width="1877" height="431" key="GridCell.Tab.0.center" timestamp="1619045511422">
+    <state width="1877" height="308" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619271739635" />
+    <state width="1877" height="308" key="GridCell.Tab.0.center" timestamp="1619271739634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="431" key="GridCell.Tab.0.center/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511422" />
-    <state width="1877" height="431" key="GridCell.Tab.0.left" timestamp="1619045511422">
+    <state width="1877" height="308" key="GridCell.Tab.0.center/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619271739634" />
+    <state width="1877" height="308" key="GridCell.Tab.0.left" timestamp="1619271739634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="431" key="GridCell.Tab.0.left/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511422" />
-    <state width="1877" height="431" key="GridCell.Tab.0.right" timestamp="1619045511422">
+    <state width="1877" height="308" key="GridCell.Tab.0.left/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619271739634" />
+    <state width="1877" height="308" key="GridCell.Tab.0.right" timestamp="1619271739635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="431" key="GridCell.Tab.0.right/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619045511422" />
-    <state x="607" y="152" key="SettingsEditor" timestamp="1619016346620">
+    <state width="1877" height="308" key="GridCell.Tab.0.right/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619271739635" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1619238006362">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="607" y="152" key="SettingsEditor/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619016346620" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619238006362" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1619238006362">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619238006362" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1619238006362">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619238006362" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1619238006362">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619238006362" />
+    <state x="607" y="152" key="SettingsEditor" timestamp="1619223434650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="607" y="152" key="SettingsEditor/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619223434650" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1619227173678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1842.54.1842.1036@0.0.1920.1040" timestamp="1619227173678" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MOBA_Data_Collector$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1619016304173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$main.coverage" NAME="main Coverage Results" MODIFIED="1619045511418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
-    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$MOBA_DATA.coverage" NAME="MOBA_DATA Coverage Results" MODIFIED="1619042673499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
+    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$main.coverage" NAME="main Coverage Results" MODIFIED="1619271739628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
+    <SUITE FILE_PATH="coverage/MOBA_Data_Collector$MOBA_DATA.coverage" NAME="MOBA_DATA Coverage Results" MODIFIED="1619271483888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Src" />
   </component>
 </project>

@@ -37,7 +37,7 @@ class Scrapper:
         raise lastException
 
     def init_user_agents(self):
-        f = open("useragents.txt", "r")
+        f = open("files\\useragents.txt", "r")
         agents = [a for a in f.read().split("\n")]
         f.close()
         return agents

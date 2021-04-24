@@ -1,14 +1,35 @@
 {% extends 'base.html'%}
 
-{% block head %}
+{% block one %}
 {% endblock %}
 
 
-{% block body %}
+{% block graphique %}
     <h1>Hello</h1>
 
-    <form action="/" method="POST">
+    <form action="/" method="GET">
         <input type="text" name="content" id="content">
-        <input type="submit" value="Add">
+        <input type="submit" name="fetch" value="activate">
+        <input type="submit" name="stat" value="activate">
     </form>
+{% endblock %}
+
+{% block liste %}
+    {% if query %}
+        <tbody>
+        {% for p in query %}
+            <tr>
+                <td>{{ p.Rank }}</td>
+                <td>{{ p.Server }}</td>
+                <td>{{ p.Name }}</td>
+                <td>{{ p.Elo }}</td>
+                <td>{{ p.LP }}</td>
+                <td>{{ p.Win }}</td>
+                <br>
+            </tr>
+        {% endfor %}
+        </tbody>
+    {% else %}
+
+    {% endif %}
 {% endblock %}
