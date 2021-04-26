@@ -21,7 +21,6 @@ m = Querying_Agent("mongodb://localhost:27017/?readPreference=primary&appname=Mo
 #m.insert_bulk_csv("files\\all_regions_50.csv")
 print("Done")
 
-
 m.find_one("Name","El Brayayin")
 
 print(m.total())
@@ -33,10 +32,13 @@ print(m.total())
 
 
 
-# query = m.top_X_Criteria(5, "Server", "BR", "Rank")
+# query = m.top_X_Criteria(5, "Elo", "Challenger", "Rank")
 # print(query)
+# m.update_elo_index()
+# m.find_one("Name","El Brayayin")
 # m.list()
-
+# query = m.top_X_Criteria(5, "Elo", "Challenger", "Rank")
+# print(query)
 #m.delete_records()
 
 #print(data[len(x)-1])

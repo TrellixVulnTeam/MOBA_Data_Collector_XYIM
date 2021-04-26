@@ -48,4 +48,16 @@ class Querying_Agent:
         ]))
 
     def list(self):
-        print(self.collection.distinct('Server'))
+        print(self.collection.distinct('Elo_Index'))
+
+    def update_elo_index(self):
+        self.collection.update({}, {"$set": {"Elo_Index": "0"}}, False, True)
+        #self.collection.update({Elo: "Challenger"}, {"$set": {Elo_Index: 0}}, {multi: true})
+        self.collection.update({"Elo": "Grandmaster"}, {"$set": {"Elo_Index": "1"}}, True)
+        self.collection.update({"Elo": "Master"}, {"$set": {"Elo_Index": "2"}}, True)
+        self.collection.update({"Elo": "Diamond"}, {"$set": {"Elo_Index": "3"}}, True)
+        self.collection.update({"Elo": "Platinum"}, {"$set": {"Elo_Index": "4"}}, True)
+        self.collection.update({"Elo": "Gold"}, {"$set": {"Elo_Index": "5"}}, True)
+        self.collection.update({"Elo": "Silver"}, {"$set": {"Elo_Index": "6"}}, True)
+        self.collection.update({"Elo": "Bronze"}, {"$set": {"Elo_Index": "7"}}, True)
+        self.collection.update({"Elo": "Iron"}, {"$set": {"Elo_Index": "8"}}, True)
