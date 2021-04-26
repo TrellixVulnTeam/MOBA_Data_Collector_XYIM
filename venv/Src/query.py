@@ -35,11 +35,17 @@ class Querying_Agent:
     def total(self):
         return self.collection.count_documents({})
 
-    def top_X_Criteria(self, amount, criteria, data):
-        ["Challenger", "Grandmaster", "Master", "Diamond", "Platinum", "Gold", "Silver", "Bronze", "Iron"]
+    def rename(self, previous, new):
+        self.collection.update({}, {"$rename":{previous:new}}, False, True)
+
+    #["Challenger", "Grandmaster", "Master", "Diamond", "Platinum", "Gold", "Silver", "Bronze", "Iron"]
+    def top_X_Criteria(self, amount, criteria, data, sort):
+        way = 1 if sort == "Rank" else -1
         return list(self.collection.aggregate([
             {"$match": {criteria:data}},
-            {"$sort":{"LP":1}},
+            {"$sort":{sort:way}},
             {"$limit":amount}
         ]))
-        #return list(self.collection.find({criteria:data}).sort("LP", -1).limit(amount))
+
+    def list(self):
+        print(self.collection.distinct('Server'))

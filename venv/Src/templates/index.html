@@ -4,13 +4,25 @@
 {% endblock %}
 
 
-{% block graphique %}
-    <h1>Hello</h1>
-
+{% block two %}
     <form action="/" method="GET">
-        <input type="text" name="content" id="content">
-        <input type="submit" name="fetch" value="activate">
-        <input type="submit" name="stat" value="activate">
+
+        <label for="servers">Server :</label>
+        <select name="servers" id="servers">
+            {% for s in servers %}
+                <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="sorters" id="sorters">
+            {% for s in sorters %}
+                <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+        </select>
+
+
+        <input type="submit" name="top_x" value="activate">
+        <input type="submit" name="stat" value="stats">
     </form>
 {% endblock %}
 
@@ -25,6 +37,7 @@
                 <td>{{ p.Elo }}</td>
                 <td>{{ p.LP }}</td>
                 <td>{{ p.Win }}</td>
+                <td>{{ p["Win%"] }}</td>
                 <br>
             </tr>
         {% endfor %}

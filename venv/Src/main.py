@@ -26,9 +26,17 @@ m.find_one("Name","El Brayayin")
 
 print(m.total())
 
-query = m.top_X_Criteria(5, "Elo", "Challenger")
+# m.delete_records()
+# print(m.total())
+# m.insert_bulk_csv("files\\all_regions_50.csv")
+# print(m.total())
 
-print(query)
+
+
+# query = m.top_X_Criteria(5, "Server", "BR", "Rank")
+# print(query)
+# m.list()
+
 #m.delete_records()
 
 #print(data[len(x)-1])
