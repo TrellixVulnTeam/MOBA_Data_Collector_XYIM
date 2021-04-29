@@ -1,48 +1,88 @@
 {% extends 'base.html'%}
 
-{% block one %}
-{% endblock %}
-
-
-{% block two %}
-    <form action="/" method="GET">
-
-        <label for="servers">Server :</label>
-        <select name="servers" id="servers">
-            {% for s in servers %}
-                <option value="{{ s }}">{{ s }}</option>
-            {% endfor %}
-        </select>
-
-        <select name="sorters" id="sorters">
-            {% for s in sorters %}
-                <option value="{{ s }}">{{ s }}</option>
-            {% endfor %}
-        </select>
-
-
-        <input type="submit" name="top_x" value="activate">
-        <input type="submit" name="stat" value="stats">
-    </form>
-{% endblock %}
-
-{% block liste %}
-    {% if query %}
-        <tbody>
+{% block content %}
+    {% if querytype == "startpoint" %}
+      <h2>Start</h2>
+    {% elif querytype == "players" %}
+      <h2>Liste des meilleurs joueurs</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Pseudo</th>
+              <th>Serveur</th>
+              <th>Elo</th>
+              <th>LP</th>
+              <th>Win</th>
+              <th>Win%</th>
+            </tr>
+          </thead>
+          <tbody>
         {% for p in query %}
             <tr>
                 <td>{{ p.Rank }}</td>
-                <td>{{ p.Server }}</td>
                 <td>{{ p.Name }}</td>
+                <td>{{ p.Server }}</td>
                 <td>{{ p.Elo }}</td>
                 <td>{{ p.LP }}</td>
                 <td>{{ p.Win }}</td>
                 <td>{{ p["Win%"] }}</td>
-                <br>
             </tr>
         {% endfor %}
         </tbody>
-    {% else %}
-
+        </table>
+      </div>
+    {% elif querytype == "players_elastic" %}
+      <h2>{{ queryname }}</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Pseudo</th>
+              <th>Serveur</th>
+              <th>Elo</th>
+              <th>LP</th>
+              <th>Win</th>
+              <th>Win%</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for p in query %}
+            <tr>
+                <td>{{ p.Rank }}</td>
+                <td>{{ p.Name }}</td>
+                <td>{{ p.Server }}</td>
+                <td>{{ p.Elo }}</td>
+                <td>{{ p.LP }}</td>
+                <td>{{ p.Win }}</td>
+                <td>{{ p["Win%"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    {% elif querytype == "graph" %}
+      <h2>Graph</h2>
     {% endif %}
+    </div>
+{% endblock %}
+
+{% block servers %}
+    {% for s in servers %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}
+
+{% block sorters %}
+    {% for s in sorters %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}
+
+{% block select1server %}
+    {% for s in servers %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
 {% endblock %}
