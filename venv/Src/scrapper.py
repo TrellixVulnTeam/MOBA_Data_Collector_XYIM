@@ -147,10 +147,6 @@ class Scrapper:
     def remove_parenthese_strip(self, sentence):
         return sentence.strip('()%')
 
-    def remove_white_spaces_split(self, sentence):
-        return sentence.split()
-
-
     def extract_sitemap(self, soup):
         sitemapTags = soup.find_all("sitemap")
         xmlDict = {}

@@ -1,7 +1,7 @@
 
 from scrapper import Scrapper
 from query import Querying_Agent
-from graph.py import Graph
+from graph import Graph
 
 
 
@@ -22,7 +22,7 @@ m = Querying_Agent("mongodb://localhost:27017/?readPreference=primary&appname=Mo
 
 #m.find_one("Name","El Brayayin")
 
-print(m.total())
+# print(m.total())
 
 #--
 # m.delete_index("players")
@@ -36,10 +36,19 @@ print(m.total())
 # for r in res['hits']['hits']:
 #     print(r)
 
-v = m.challengers_per_server()
-print(v)
+# g = Graph()
+#
+# v = m.challengers_per_server()
+# g.chall_by_server_world_hist(v)
+# g.chall_by_server_world_pie(v)
+# print(v)
+#
+# e = m.elo_per_server("BR")
+# g.number_server_pie(e)
+# g.number_server_hist(e)
+# print(e)
 
-chall_by_server_world_hist(v)
+
 # query = m.top_X_Criteria(5, "Server", "BR", "Rank")
 # print(query)
 #m.delete_records()

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Graph:
-    def chall_by_server_world_pie(tab):
+    def chall_by_server_world_pie(self, tab):
         name = ['BR', 'EUNE', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'NA', 'OCE', 'RU', 'TR']
         BR = int(tab[0])
         EUNE = int(tab[1])
@@ -22,11 +22,11 @@ class Graph:
         plt.pie(data, explode=explode, labels=name, autopct='%1.1f%%', startangle=90, shadow=True)
         plt.axis('equal')
         #plt.show()
-        plt.savefig('image_graphe/chall_by_server_world_pie.png')
+        plt.savefig('static/chall_by_server_world_pie.png')
 
 
 
-    def number_server_pie(tab):
+    def number_server_pie(self, tab):
         name = ['Challenger', 'GrandMaster', 'Master', 'Diamond', 'Platinum']
         Challenger = int(tab[0])
         GrandMaster = int(tab[1])
@@ -40,25 +40,26 @@ class Graph:
         plt.pie(data, explode=explode, labels=name, autopct='%1.1f%%', startangle=90, shadow=True)
         plt.axis('equal')
         #plt.show()
-        plt.savefig('image_graphe/chall_by_server_world_pie.png')
+        plt.savefig('static/number_server_pie.png')
 
-    def number_server_hist(tab):
+    def number_server_hist(self, tab):
         x = np.arange(5)
         plt.bar(x, height=[int(tab[0]), int(tab[1]), int(tab[2]), int(tab[3]), int(tab[4])])
         plt.xticks(x, ['Challenger', 'GrandMaster', 'Master', 'Diamond', 'Platinum'])
         #plt.show()
-        plt.savefig('image_graphe/chall_by_server_world_pie.png')
+        plt.savefig('static/number_server_hist.png')
 
 
-    def chall_by_server_world_hist(tab):
+    def chall_by_server_world_hist(self, tab):
         x = np.arange(11)
         plt.bar(x, height=[int(tab[0]), int(tab[1]), int(tab[2]), int(tab[3]), int(tab[4]), int(tab[5]), int(tab[6]),
                            int(tab[7]), int(tab[8]), int(tab[9]), int(tab[10])])
         plt.xticks(x, ['BR', 'EUNE', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'NA', 'OCE', 'RU', 'TR'])
         #plt.show()
-        plt.savefig('image_graphe/chall_by_server_world_pie.png')
+        plt.savefig('static/chall_by_server_world_hist.png')
 
 
-# if __name__ == '__main__':
-#     tab = ['100', '70', '60', '45', '0', '5', '40', '85', '45', '78', '46']
-#     chall_by_server_world_pie(tab)
+if __name__ == '__main__':
+    g = Graph()
+    tab = ['100', '70', '60', '45', '0', '5', '40', '85', '45', '78', '46']
+    g.chall_by_server_world_pie(tab)

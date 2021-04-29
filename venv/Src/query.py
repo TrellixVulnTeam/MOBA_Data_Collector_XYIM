@@ -55,6 +55,10 @@ class Querying_Agent:
         server = ['BR', 'EUNE', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'NA', 'OCE', 'RU', 'TR']
         return [self.collection.find({"Server": s, "Elo":"Challenger"}).count() for s in server]
 
+    def elo_per_server(self, server):
+        elo = ['Challenger', 'GrandMaster', 'Master', 'Diamond', 'Platinum']
+        return [self.collection.find({"Server": server, "Elo":e}).count() for e in elo]
+
 
     #### ELASTIC ####
 
