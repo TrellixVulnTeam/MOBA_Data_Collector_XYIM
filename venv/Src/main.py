@@ -1,9 +1,56 @@
 
 from scrapper import Scrapper
+from query import Querying_Agent
+from graph import Graph
+
 
 
 s = Scrapper("https://www.leagueofgraphs.com/rankings/summoners")
+m = Querying_Agent("mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false", "league", "players")
+#xpath : '//*[@id="drop-region"]/ul'
 
-for i in range(0, 100001):
-    s.next_page()
-    print(s.url)
+#data = s.extract_pages_bulk(2, True)
+#print(f"Amount collected : {len(data)}")
+#s.write_csv("files\\all_regions_50.csv", data)
+
+
+#extract = [data[i] for i in range(0, 20)]
+
+#print("Inserting")
+#m.insert_bulk_csv("files\\all_regions_50.csv")
+#print("Done")
+
+#m.find_one("Name","El Brayayin")
+
+# print(m.total())
+
+#--
+# m.delete_index("players")
+# m.print_indexes()
+# m.bulk_index("files\\all_regions_50.csv")
+# m.print_indexes()
+#--
+# print(m.es_query())
+
+# res = m.search(5, "p")
+# for r in res['hits']['hits']:
+#     print(r)
+
+# g = Graph()
+#
+# v = m.challengers_per_server()
+# g.chall_by_server_world_hist(v)
+# g.chall_by_server_world_pie(v)
+# print(v)
+#
+# e = m.elo_per_server("BR")
+# g.number_server_pie(e)
+# g.number_server_hist(e)
+# print(e)
+
+
+# query = m.top_X_Criteria(5, "Server", "BR", "Rank")
+# print(query)
+#m.delete_records()
+
+#print(data[len(x)-1])
