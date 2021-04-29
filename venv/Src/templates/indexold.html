@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block one %}
+{% endblock %}
+
+
+{% block two %}
+    <form action="/" method="GET">
+
+        <label for="servers">Server :</label>
+        <select name="servers" id="servers">
+            {% for s in servers %}
+                <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+        </select>
+
+
+        <input type="submit" name="top_x" value="activate">
+        <input type="submit" name="stat" value="stats">
+    </form>
+{% endblock %}
+
+{% block liste %}
+    {% if query %}
+        <tbody>
+        {% for p in query %}
+            <tr>
+                <td>{{ p.Rank }}</td>
+                <td>{{ p.Server }}</td>
+                <td>{{ p.Name }}</td>
+                <td>{{ p.Elo }}</td>
+                <td>{{ p.LP }}</td>
+                <td>{{ p.Win }}</td>
+                <td>{{ p["Win%"] }}</td>
+                <br>
+            </tr>
+        {% endfor %}
+        </tbody>
+    {% else %}
+
+    {% endif %}
+{% endblock %}

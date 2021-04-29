@@ -1,0 +1,102 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    {% if querytype == "startpoint" %}
+      <h2>Welcome</h2>
+    {% elif querytype == "players" %}
+      <h2>Liste des meilleurs joueurs</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Pseudo</th>
+              <th>Serveur</th>
+              <th>Elo</th>
+              <th>LP</th>
+              <th>Win</th>
+              <th>Win%</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for p in query %}
+            <tr>
+                <td>{{ p.Rank }}</td>
+                <td>{{ p.Name }}</td>
+                <td>{{ p.Server }}</td>
+                <td>{{ p.Elo }}</td>
+                <td>{{ p.LP }}</td>
+                <td>{{ p.Win }}</td>
+                <td>{{ p["Win%"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    {% elif querytype == "players_elastic" %}
+      <h2>{{ queryname }}</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Pseudo</th>
+              <th>Serveur</th>
+              <th>Elo</th>
+              <th>LP</th>
+              <th>Win</th>
+              <th>Win%</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for p in query %}
+            <tr>
+                <td>{{ p.Rank }}</td>
+                <td>{{ p.Name }}</td>
+                <td>{{ p.Server }}</td>
+                <td>{{ p.Elo }}</td>
+                <td>{{ p.LP }}</td>
+                <td>{{ p.Win }}</td>
+                <td>{{ p["Win%"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    {% elif querytype == "graph" %}
+      <h2>Graph</h2>
+        <img src="{{ url_for('static', filename=path) }}" alt="Graph image">
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block servers %}
+    {% for s in servers %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}
+
+{% block sorters %}
+    {% for s in sorters %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}
+
+{% block select1server %}
+    {% for s in servers %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}
+
+{% block custom1 %}
+    {% for s in servers %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}
+
+
+{% block custom2 %}
+    {% for s in servers %}
+        <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+{% endblock %}

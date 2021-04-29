@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>League Analyst</title>
+
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+
+<form action="/" method="GET">
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">League Analyst</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <input class="form-control form-control-dark w-100" name="search_bar" type="text" placeholder="Search" aria-label="Search">
+    <input type="submit" name="match_player" value="QUERY">
+</header>
+</form>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+
+          <li class="nav-item">
+            <form action="/" method="GET">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Meilleurs joueurs par serveur
+              </a>
+              <select class="custom-select" id="inputGroupSelect01" selected="selected" name="servers">
+                {% block select1server %}
+                {% endblock %}
+              </select>
+            <input type="submit" name="top_x" value="Query">
+            </form>
+          </li>
+
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+
+          <span>Statistiques</span>
+          <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+
+          <li class="nav-item">
+            <span>Challenger par serveur (Fromage)</span>
+              <span data-feather="file-text"></span>
+              <form action="/" method="GET">
+                <input type="submit" name="chall_by_server_world_pie" value="Query">
+              </form>
+          </li>
+
+          <li class="nav-item">
+            <span>Challenger par serveur (Histogramme)</span>
+              <span data-feather="file-text"></span>
+              <form action="/" method="GET">
+              </select>
+              <input type="submit" name="chall_by_server_world_hist" value="Query">
+              </form>
+          </li>
+
+          <li class="nav-item">
+            <span>Elo par serveur (Fromage)</span>
+              <span data-feather="file-text"></span>
+              <form action="/" method="GET">
+              <select class="custom-select" id="inputGroupSelect01" selected="selected" name="servers">
+                {% block custom1 %}
+                {% endblock %}
+              </select>
+              <input type="submit" name="number_server_pie" value="Query">
+              </form>
+          </li>
+
+          <li class="nav-item">
+            <span>Elo par serveur (Histogramme)</span>
+              <span data-feather="file-text"></span>
+              <form action="/" method="GET">
+              <select class="custom-select" id="inputGroupSelect01" selected="selected" name="servers">
+                {% block custom2 %}
+                {% endblock %}
+              <input type="submit" name="number_server_hist" value="Query">
+              </form>
+          </li>
+
+
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"> </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="input-group input-group-sm">
+<!--                <label> Serveur : </label>-->
+<!--                    <select class="custom-select" id="inputGroupSelect01" selected="selected" name="servers">-->
+<!--                      {% block servers %}-->
+<!--                      {% endblock %}-->
+<!--                    </select>-->
+<!--                <label> Sort : </label>-->
+<!--                    <select class="custom-select" id="inputGroupSelect01" selected="selected" name="sorters">-->
+<!--                      {% block sorters %}-->
+<!--                      {% endblock %}-->
+<!--                    </select>-->
+              </div>
+        </div>
+      </div>
+
+<!--      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+
+          {% block content %}
+          {% endblock %}
+
+    </main>
+  </div>
+</div>
+
+
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
+</html>
+
+
