@@ -1,4 +1,4 @@
-# MOBA_Data_Collector
+# League Analyst
 
 Scrapping de données de joueurs de League of Legends.
 
